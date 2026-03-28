@@ -1,19 +1,37 @@
-# :earth_americas: GDP dashboard template
+# 🔬 AI-Assisted Data Wrangler & Visualizer
 
-A simple Streamlit app showing the GDP of different countries in the world.
+> **Module:** Data Wrangling and Visualization — 5COSC038C  
+> **University:** Westminster International University in Tashkent  
+> **Submission deadline:** 28 March 2026
+> 
+##  Overview
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gdp-dashboard-template.streamlit.app/)
+A comprehensive Streamlit application that acts as a **mini data preparation studio**. Upload a dataset, profile it, clean and transform it interactively, build dynamic visualizations, and export the cleaned data plus a full transformation report.
 
-### How to run it on your own machine
+## App Pages
 
-1. Install the requirements
+| Page | Description |
+|------|-------------|
+| ** Upload & Overview** | Upload CSV/Excel/JSON, view shape, dtypes, missing values, duplicates |
+| ** Cleaning Studio** | 8 cleaning modules: missing values, duplicates, types, categorical tools, numeric/outlier treatment, scaling, column ops, validation |
+| ** Visualization Builder** | Build 6+ chart types interactively with filtering and aggregation |
+| ** Export & Report** | Download cleaned CSV/Excel, transformation report (Markdown), JSON recipe, Python replay script |
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+## Technologies Used
 
-2. Run the app
+| Library | Purpose |
+|---------|---------|
+| Streamlit | Web application framework |
+| Pandas | Data manipulation |
+| NumPy | Numeric operations |
+| Matplotlib | Core visualizations |
+| Seaborn | Heatmap / statistical plots |
+| SciPy | Z-score outlier detection |
+| OpenPyXL | Excel read/write |
 
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+## Team
+
+| Name | Student ID |
+|------|-----------|
+| [Student 1] | [00018788] |
+| [Student 2] | [00018301] |
