@@ -77,24 +77,28 @@ st.header("Section 1 - Upload and Overview")
 uploaded_file = st.file_uploader("Upload your dataset (CSV, Excel or JSON)", type=["csv", "xlsx", "json"])
 
 if uploaded_file is not None:
-    file_bytes = uploaded_file.read()
     filename = uploaded_file.name
 
-    try:
-        if filename.endswith(".csv"):
-            st.session_state.df = load_csv(file_bytes)
-        elif filename.endswith(".xlsx"):
-            st.session_state.df = load_excel(file_bytes)
-        elif filename.endswith(".json"):
-            st.session_state.df = load_json(file_bytes)
+    # Only reload when the filename changes. Without this guard, every button
+    # click reruns this block and resets st.session_state.df back to the
+    # original file, wiping all the cleaning the user has done.
+    if filename != st.session_state.uploaded_filename:
+        file_bytes = uploaded_file.read()
+        try:
+            if filename.endswith(".csv"):
+                st.session_state.df = load_csv(file_bytes)
+            elif filename.endswith(".xlsx"):
+                st.session_state.df = load_excel(file_bytes)
+            elif filename.endswith(".json"):
+                st.session_state.df = load_json(file_bytes)
 
-        st.session_state.original_df = st.session_state.df.copy()
-        st.session_state.transform_log = []
-        st.session_state.undo_stack = []
-        st.session_state.uploaded_filename = filename
-        st.success("File loaded: " + filename)
-    except Exception as e:
-        st.error("Could not read the file. Error: " + str(e))
+            st.session_state.original_df = st.session_state.df.copy()
+            st.session_state.transform_log = []
+            st.session_state.undo_stack = []
+            st.session_state.uploaded_filename = filename
+            st.success("File loaded: " + filename)
+        except Exception as e:
+            st.error("Could not read the file. Error: " + str(e))
 
 # Google Sheets - optional, loads from a public CSV export URL
 with st.expander("Or connect a Google Sheets URL"):
