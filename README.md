@@ -1,4 +1,4 @@
-# 🔬 AI-Assisted Data Wrangler & Visualizer
+# Data Wrangler & Visualizer
 
 > **Module:** Data Wrangling and Visualization — 5COSC038C  
 > **University:** Westminster International University in Tashkent  
